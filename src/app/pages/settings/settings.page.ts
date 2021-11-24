@@ -11,5 +11,15 @@ export class SettingsPage implements OnInit {
 
   ngOnInit() {
   }
-
 }
+
+//translateService.use('en')
+
+/*
+translateService.get('HELLO').subscribe(
+  value => {
+    // value is our translated string
+    let alertTitle = value;
+  }
+)
+*/
