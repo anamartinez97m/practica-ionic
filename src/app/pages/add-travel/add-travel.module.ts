@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AddTravelPageRoutingModule } from './add-travel-routing.module';
 
 import { AddTravelPage } from './add-travel.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddTravelPageRoutingModule
+    AddTravelPageRoutingModule,
+    TranslateModule
   ],
   declarations: [AddTravelPage]
 })
