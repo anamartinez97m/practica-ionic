@@ -3,13 +3,16 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ 'menu.settings' | translate }}</ion-title>
+    <ion-title>{{ 'title.settings' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-    <ion-label>Cambiar a español</ion-label>
-    <ion-toggle color="primary"></ion-toggle>
+    <ion-buttons>
+      <ion-button expand="full" fill="clear" (click)="presentPopover()">
+        <ion-label>{{ 'changeLanguages' | translate }}</ion-label>
+      </ion-button>
+    </ion-buttons>
   </ion-item>
 </ion-content>

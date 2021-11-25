@@ -1,6 +1,9 @@
 {
-    "menu.home": "Home",
-    "menu.wishlist": "Wishlist",
-    "menu.mytravels": "My Travels",
-    "menu.settings": "Settings"
+    "title.home": "Home",
+    "title.wishlist": "Wishlist",
+    "title.mytravels": "My Travels",
+    "title.settings": "Settings",
+    "changeLanguages": "Change language",
+    "en.language": "English",
+    "es.language": "Spanish"
 }

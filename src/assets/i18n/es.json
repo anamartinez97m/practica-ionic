@@ -1,6 +1,9 @@
 {
-    "menu.home": "Casa",
-    "menu.wishlist": "Deseos",
-    "menu.mytravels": "Viajes",
-    "menu.settings": "Configuración"
+    "title.home": "Casa",
+    "title.wishlist": "Deseos",
+    "title.mytravels": "Viajes",
+    "title.settings": "Configuración",
+    "changeLanguages": "Cambiar idioma",
+    "en.language": "Inglés",
+    "es.language": "Español"
 }
