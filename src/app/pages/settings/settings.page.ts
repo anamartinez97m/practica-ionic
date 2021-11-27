@@ -12,7 +12,7 @@ export class SettingsPage implements OnInit {
 
   public langs: any;
   public languages: any[] = [];
-  public isNightModeActivated: boolean = false;
+  public isNightModeEnabled: boolean = false;
 
   constructor(
     private popoverController: PopoverController,
@@ -50,16 +50,23 @@ export class SettingsPage implements OnInit {
 
   changeLanguage(selectedLanguage: string) {
     this.translateService.use(selectedLanguage);
+
+    //translateService.use('en')
+
+    // translateService.get('HELLO').subscribe(
+    //   value => {
+    //     let alertTitle = value;
+    //   }
+    // )
+  }
+
+  enableNightMode() {
+    if (this.isNightModeEnabled) {
+      this.isNightModeEnabled = !this.isNightModeEnabled;
+      console.log('Estas en modo normal');
+    } else {
+      this.isNightModeEnabled = !this.isNightModeEnabled;
+      console.log('Estas en modo nocturno');
+    }
   }
 }
-
-//translateService.use('en')
-
-/*
-translateService.get('HELLO').subscribe(
-  value => {
-    // value is our translated string
-    let alertTitle = value;
-  }
-)
-*/

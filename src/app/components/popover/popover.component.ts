@@ -8,7 +8,7 @@ import { ModalController, NavParams, PopoverController } from '@ionic/angular';
 })
 export class PopoverComponent implements OnInit {
 
-  public languages: any = [];
+  public languages: any[] = [];
 
   constructor(
     private navParams: NavParams,
@@ -20,7 +20,6 @@ export class PopoverComponent implements OnInit {
   }
 
   selectLanguage(event: any) {
-    console.log(event);
     this.popoverController.dismiss(event.element);
   }
 }

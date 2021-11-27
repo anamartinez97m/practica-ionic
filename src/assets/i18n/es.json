@@ -5,6 +5,8 @@
     "title.settings": "Configuración",
     "changeLanguages": "Cambiar idioma",
     "nightMode": "Modo nocturno",
+    "commons.enabled": "Activado",
+    "commons.disabled": "Desactivado",
     "en.language": "Inglés",
     "es.language": "Español"
 }

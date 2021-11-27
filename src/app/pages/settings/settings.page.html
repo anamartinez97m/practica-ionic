@@ -18,12 +18,19 @@
     </ion-item>
   
     <ion-item>
-      <ion-buttons>
-        <ion-button expand="full" fill="clear">
+      <ion-buttons class="nighModeButtons">
+        <ion-button expand="full" fill="clear" class="nighModeButton">
           <ion-label>
             {{ 'nightMode' | translate }}
-            <p>{{ isNightModeActivated }}</p>
+            <p class="nightModeSubtitle">
+              {{ isNightModeEnabled? 
+                ('commons.enabled' | translate) : 
+                ('commons.disabled' | translate) }}
+            </p>
           </ion-label>
+          <ion-toggle 
+            slot="end" 
+            (ionChange)="enableNightMode()"></ion-toggle>
         </ion-button>
       </ion-buttons>
     </ion-item>
