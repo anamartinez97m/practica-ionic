@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NavParams } from '@ionic/angular';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { ModalController, NavParams, PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-popover',
@@ -10,7 +10,10 @@ export class PopoverComponent implements OnInit {
 
   public languages: any = [];
 
-  constructor(private navParams: NavParams) { }
+  constructor(
+    private navParams: NavParams,
+    private popoverController: PopoverController
+  ) { }
 
   ngOnInit() {
     this.languages = this.navParams.get('data');
@@ -18,6 +21,6 @@ export class PopoverComponent implements OnInit {
 
   selectLanguage(event: any) {
     console.log(event);
+    this.popoverController.dismiss(event.element);
   }
-
 }

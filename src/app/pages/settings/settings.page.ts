@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
@@ -12,6 +12,7 @@ export class SettingsPage implements OnInit {
 
   public langs: any;
   public languages: any[] = [];
+  public isNightModeActivated: boolean = false;
 
   constructor(
     private popoverController: PopoverController,
@@ -37,10 +38,18 @@ export class SettingsPage implements OnInit {
         data: this.languages
       }
     });
-    await popover.present();
 
-    const { role } = await popover.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+    popover.onDidDismiss().then((dataReturned: any) => {
+      if (dataReturned && dataReturned !== null) {
+        this.changeLanguage(dataReturned.data);
+      }
+    });
+
+    return await popover.present();
+  }
+
+  changeLanguage(selectedLanguage: string) {
+    this.translateService.use(selectedLanguage);
   }
 }
 
