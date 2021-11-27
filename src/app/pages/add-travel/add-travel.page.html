@@ -3,10 +3,37 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Add travel</ion-title>
+    <ion-title>{{ 'title.addTravel' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div>
+    <ion-item>
+      <ion-label>{{ 'addTravel.whereTo' | translate }}</ion-label>
+      <ion-select placeholder="{{ 'commons.selectPlaceholder' | translate }}">
+        <ion-select-option value="w">{{ 'title.wishlist' | translate }}</ion-select-option>
+        <ion-select-option value="t">{{ 'title.mytravels' | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
 
+  <div>
+    <ion-searchbar 
+      animated 
+      clearIcon="close-circle"
+      mode="ios"></ion-searchbar>
+  </div>
+
+  <div class="addTravelSaveContainer">
+    <ion-buttons class="saveButtonContainer">
+      <ion-button 
+        class="addTravelSaveButton"
+        fill="outline"
+        size="large"
+        mode="ios"
+        type="submit">{{ 'commons.save' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </div>
 </ion-content>

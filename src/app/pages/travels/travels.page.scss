@@ -2,3 +2,24 @@
     --color: white;
     --background: #9228a5;
 }
+
+.card {
+    width: 50%;
+    height: 335px;
+    margin-bottom: 5%;
+}
+
+.cardDisplayTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 3%;
+}
+
+.continentLabel {
+    margin-left: 2%;
+}
+
+.cardDescription {
+    margin-left: 2.5%;
+}

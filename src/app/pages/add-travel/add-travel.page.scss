@@ -2,3 +2,27 @@
     --color: white;
     --background: #9228a5;
 }
+
+.addTravelSaveButton {
+    margin-top: 5%;
+    color: white;
+    font-size: large;
+    width: 55%;
+    // --background: #e7cfbc;
+    --background: #9228a5;
+    // --background-focused: #dfbfa5;
+    --background-focused: #491452;
+    // --background-hover: #dfbfa5;
+    --background-hover: #491452;
+    --border-color:#9228a5;
+}
+
+.addTravelSaveContainer {
+    position: fixed;
+    bottom: 5%;
+    width: -webkit-fill-available;
+}
+
+.saveButtonContainer {
+    justify-content: space-evenly;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DEFAULT_IMG } from 'src/app/global-constants';
 
 @Component({
   selector: 'app-travels',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class TravelsPage implements OnInit {
 
   public continents: any[] = [];
+  public defaultImg = DEFAULT_IMG;
 
   constructor() { }
 
@@ -17,7 +19,7 @@ export class TravelsPage implements OnInit {
       places: [{
         country:'Spain', 
         city:'Madrid', 
-        description:'Madriz', 
+        description:'Madrid es la capital de España.', 
         image:'./assets/madrid.jpg'
       }]
     });

@@ -1,12 +1,16 @@
 {
     "title.home": "Home",
     "title.wishlist": "Wishlist",
+    "title.addTravel": "Add travel",
     "title.mytravels": "My Travels",
     "title.settings": "Settings",
     "changeLanguages": "Change language",
     "nightMode": "Night Mode",
     "commons.enabled": "Enabled",
     "commons.disabled": "Not enabled",
+    "commons.save": "Save",
+    "commons.selectPlaceholder": "Select One",
     "en.language": "English",
-    "es.language": "Spanish"
+    "es.language": "Spanish",
+    "addTravel.whereTo": "Where to save?"
 }

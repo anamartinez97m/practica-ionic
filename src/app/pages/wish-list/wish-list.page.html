@@ -8,5 +8,28 @@
 </ion-header>
 
 <ion-content>
+  <div class="modeWishListButtons">
+    <ion-segment (ionChange)="changeViewMode($event)" value="list" mode="ios">
+      <ion-segment-button value="list">
+        <ion-icon name="list"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="map">
+        <ion-icon name="pin"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ion-list *ngIf="modeListIsEnabled">
+    <ion-card mode="ios">
+      <ion-item>
+        <ion-img [src]=defaultImg></ion-img>
+        <ion-card-content>
+          <ion-card-header>ion-item in a card, icon left, button right</ion-card-header>
+          This is content, without any paragraph or header tags,
+          within an ion-card-content element.
+        </ion-card-content>
+      </ion-item>
+    </ion-card>
+  </ion-list>
 
 </ion-content>

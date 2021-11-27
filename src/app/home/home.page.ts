@@ -14,6 +14,11 @@ export class HomePage implements OnInit {
 
   public swiper: Swiper;
   private url: string = '';
+  private homeMessages: string[] = [
+    'Has pensado en ir alguna vez a ',
+    '¿Te llama la atención? Ven a ',
+    'Celebra la vida en ',
+  ];
 
   constructor(
     private platform: Platform,

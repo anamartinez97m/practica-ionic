@@ -3,14 +3,6 @@
     --background: #9228a5;
 }
 
-.nighModeButtons {
-    width: -webkit-fill-available;
-}
-
-.nighModeButton {
-    width: -webkit-fill-available;
-}
-
 .button-clear {
     --color: initial;
     --background: transparent;
@@ -22,6 +14,14 @@
 
 .label {
     margin-top: auto;
+}
+
+.nightModeButtons {
+    width: -webkit-fill-available;
+}
+
+.nightModeButton {
+    width: -webkit-fill-available;
 }
 
 .nightModeSubtitle {

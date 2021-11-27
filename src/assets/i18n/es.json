@@ -1,12 +1,16 @@
 {
     "title.home": "Casa",
-    "title.wishlist": "Deseos",
+    "title.wishlist": "Lista de deseos",
+    "title.addTravel": "Añadir viaje",
     "title.mytravels": "Viajes",
     "title.settings": "Configuración",
     "changeLanguages": "Cambiar idioma",
     "nightMode": "Modo nocturno",
     "commons.enabled": "Activado",
     "commons.disabled": "Desactivado",
+    "commons.save": "Guardar",
+    "commons.selectPlaceholder": "Selecciona uno",
     "en.language": "Inglés",
-    "es.language": "Español"
+    "es.language": "Español",
+    "addTravel.whereTo": "¿Dónde quieres añadirlo?"
 }

@@ -2,3 +2,21 @@
     --color: white;
     --background: #9228a5;
 }
+
+.modeWishListButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    margin-top: 2%
+}
+
+.modeWishListButton {
+    --background: transparent;
+    color: black;
+}
+
+.card {
+    width: 50%;
+    height: 400px;
+    margin-bottom: 5%;
+}

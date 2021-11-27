@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
 
@@ -16,7 +16,8 @@ export class SettingsPage implements OnInit {
 
   constructor(
     private popoverController: PopoverController,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private toastController: ToastController
   ) { } 
 
   ngOnInit() {
@@ -63,10 +64,18 @@ export class SettingsPage implements OnInit {
   enableNightMode() {
     if (this.isNightModeEnabled) {
       this.isNightModeEnabled = !this.isNightModeEnabled;
-      console.log('Estas en modo normal');
+      this.presentToast('Estas en modo normal');
     } else {
       this.isNightModeEnabled = !this.isNightModeEnabled;
-      console.log('Estas en modo nocturno');
+      this.presentToast('Estas en modo nocturno');
     }
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
   }
 }

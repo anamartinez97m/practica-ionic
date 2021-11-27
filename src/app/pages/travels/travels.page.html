@@ -8,19 +8,12 @@
 </ion-header>
 
 <ion-content>
-
-  <!-- List Header Inset Lines -->
-  <!-- <ion-list-header lines="inset">
-    <ion-label>New This Week</ion-label>
-    <ion-button>See All</ion-button>
-  </ion-list-header> -->
-
   <div *ngFor="let continent of continents">
-    <ion-list-header lines="inset">
-      <ion-label>{{ continent.name }}</ion-label>
-      <ion-card *ngFor="let place of continent.places">
-        <!-- <div *ngIf="show(place)"> -->
-          <ion-img src={{place.image}}></ion-img>
+    <ion-list-header lines="inset" class="cardDisplayTitle">
+      <ion-label class="continentLabel">{{ continent.name }}</ion-label>
+      <ion-card *ngFor="let place of continent.places" class="card">
+          <ion-img [src]=place.image *ngIf="place.image"></ion-img>
+          <ion-img [src]=defaultImg *ngIf="!place.image"></ion-img>
           <ion-card-header>
             <ion-grid>
               <ion-row>
@@ -32,10 +25,9 @@
               </ion-row>
             </ion-grid>
           </ion-card-header>
-          <ion-card-content>{{place.description}}
+          <ion-card-content class="cardDescription" *ngIf="place.image">{{place.description}}
             <ion-button expand="block">View Detail</ion-button>
           </ion-card-content>
-        <!-- </div> -->
       </ion-card>
     </ion-list-header>
   </div>
