@@ -12,5 +12,12 @@
     "commons.selectPlaceholder": "Select One",
     "en.language": "English",
     "es.language": "Spanish",
-    "addTravel.whereTo": "Where to save?"
+    "addTravel.whereTo": "Where to save?",
+    "continent.europe": "Europe",
+    "continent.northAmerica": "North America",
+    "continent.southAmerica": "South America",
+    "continent.africa": "Africa",
+    "continent.asia": "Asia",
+    "continent.oceania": "Oceania",
+    "continent.antarctica": "Antarctica"
 }

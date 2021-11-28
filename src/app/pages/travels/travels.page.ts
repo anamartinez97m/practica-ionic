@@ -15,20 +15,20 @@ export class TravelsPage implements OnInit {
 
   ngOnInit() {
     this.continents.push({
-      name: 'Europa', 
+      name: 'continent.europe', 
       places: [{
-        country:'Spain', 
+        country:'España', 
         city:'Madrid', 
         description:'Madrid es la capital de España.', 
         image:'./assets/madrid.jpg'
       }]
     });
-    this.continents.push({name: 'América del Norte', places: [{}]});
-    this.continents.push({name: 'América del Sur', places: [{}]});
-    this.continents.push({name: 'África', places: [{}]});
-    this.continents.push({name: 'Asia', places: [{}]});
-    this.continents.push({name: 'Oceanía', places: [{}]});
-    this.continents.push({name: 'Antártida', places: [{}]});
+    this.continents.push({name: 'continent.northAmerica', places: [{}]});
+    this.continents.push({name: 'continent.southAmerica', places: [{}]});
+    this.continents.push({name: 'continent.africa', places: [{}]});
+    this.continents.push({name: 'continent.asia', places: [{}]});
+    this.continents.push({name: 'continent.oceania', places: [{}]});
+    this.continents.push({name: 'continent.antarctica', places: [{}]});
   }
 
   show(place: any): boolean {

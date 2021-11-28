@@ -3,14 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ 'title.mytravels' | translate }}</ion-title>
+    <ion-title class="headerTitle">{{ 'title.mytravels' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div *ngFor="let continent of continents">
     <ion-list-header lines="inset" class="cardDisplayTitle">
-      <ion-label class="continentLabel">{{ continent.name }}</ion-label>
+      <ion-label class="continentLabel">{{ continent.name | translate }}</ion-label>
       <ion-card *ngFor="let place of continent.places" class="card">
           <ion-img [src]=place.image *ngIf="place.image"></ion-img>
           <ion-img [src]=defaultImg *ngIf="!place.image"></ion-img>

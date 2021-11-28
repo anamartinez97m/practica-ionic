@@ -3,11 +3,16 @@
     --background: #9228a5;
 }
 
+.headerTitle {
+    font-size: x-large;
+}
+
 .modeWishListButtons {
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
-    margin-top: 2%
+    margin-top: 2%;
+    height: 50px;
 }
 
 .modeWishListButton {

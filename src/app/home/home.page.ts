@@ -38,7 +38,7 @@ export class HomePage implements OnInit {
       //   this.platform.backButton.unsubscribe();
       // }
       this.location.back();
-      this.presentToast();
+      // this.presentToast();
     });
   }
 
