@@ -1,10 +1,9 @@
 .header {
-    --color: white;
-    --background: #9228a5;
+    --background: var(--header-background-dark);
 }
 
-.headerTitle {
-    font-size: x-large;
+.dark {
+    --background: var(--header-background-default);
 }
 
 .button-clear {

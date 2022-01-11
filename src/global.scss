@@ -24,3 +24,21 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.header {
+    // --color: white;
+    // --background: #9228a5;
+    --color: var(--header-color-default);
+    --background: var(--header-background-default);
+}
+
+.headerTitle {
+    font-size: x-large;
+}
+
+.tab-button {
+    --background: #bf5cd0;
+    --color: white;
+    --color-selected: black;
+}

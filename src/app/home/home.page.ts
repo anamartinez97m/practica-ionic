@@ -14,6 +14,7 @@ export class HomePage implements OnInit {
 
   public swiper: Swiper;
   private url: string = '';
+  private randomImage = './assets/madrid.jpg';
   private homeMessages: string[] = [
     'Has pensado en ir alguna vez a ',
     '¿Te llama la atención? Ven a ',

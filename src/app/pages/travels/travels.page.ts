@@ -20,7 +20,7 @@ export class TravelsPage implements OnInit {
         country:'España', 
         city:'Madrid', 
         description:'Madrid es la capital de España.', 
-        image:'./assets/madrid.jpg'
+        image:'./assets/places/madrid.jpg'
       }]
     });
     this.continents.push({name: 'continent.northAmerica', places: [{}]});

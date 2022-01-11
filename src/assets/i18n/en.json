@@ -10,6 +10,7 @@
     "commons.disabled": "Not enabled",
     "commons.save": "Save",
     "commons.selectPlaceholder": "Select One",
+    "commons.workInProgress": "We're working on it!",
     "en.language": "English",
     "es.language": "Spanish",
     "addTravel.whereTo": "Where to save?",
@@ -19,5 +20,7 @@
     "continent.africa": "Africa",
     "continent.asia": "Asia",
     "continent.oceania": "Oceania",
-    "continent.antarctica": "Antarctica"
+    "continent.antarctica": "Antarctica",
+    "wishlist.emptyList": "Empty list",
+    "wishlist.emptyListDescription": "Please add first place on the add page!"
 }

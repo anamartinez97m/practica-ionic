@@ -10,16 +10,24 @@
 <ion-content>
   <div>
     <ion-item>
-      <ion-label>{{ 'addTravel.whereTo' | translate }}</ion-label>
-      <ion-select placeholder="{{ 'commons.selectPlaceholder' | translate }}">
-        <ion-select-option value="w">{{ 'title.wishlist' | translate }}</ion-select-option>
-        <ion-select-option value="t">{{ 'title.mytravels' | translate }}</ion-select-option>
+      <ion-label class="addTravelSelect">{{ 'addTravel.whereTo' | translate }}</ion-label>
+      <ion-select 
+        [(ngModel)]="selectedOption"
+        class="addTravelSelect" 
+        placeholder="{{ 'commons.selectPlaceholder' | translate }}">
+        <ion-select-option 
+          class="addTravelSelect" 
+          value="w">{{ 'title.wishlist' | translate }}</ion-select-option>
+        <ion-select-option 
+          class="addTravelSelect"
+          value="t">{{ 'title.mytravels' | translate }}</ion-select-option>
       </ion-select>
     </ion-item>
   </div>
 
   <div>
     <ion-searchbar 
+      [(ngModel)]="searchbar"
       animated 
       clearIcon="close-circle"
       mode="ios"></ion-searchbar>
@@ -32,8 +40,8 @@
         fill="outline"
         size="large"
         mode="ios"
-        type="submit">{{ 'commons.save' | translate }}
-      </ion-button>
+        type="submit"
+        (click)="savePlace()">{{ 'commons.save' | translate }}</ion-button>
     </ion-buttons>
   </div>
 </ion-content>

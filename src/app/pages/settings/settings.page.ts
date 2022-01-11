@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PopoverController, ToastController } from '@ionic/angular';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { DomController, PopoverController, ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
+import { ThemeService } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -17,14 +19,16 @@ export class SettingsPage implements OnInit {
   constructor(
     private popoverController: PopoverController,
     private translateService: TranslateService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private domCtrl: DomController,
+    @Inject(DOCUMENT) private document
   ) { } 
 
   ngOnInit() {
     this.langs = this.translateService.getLangs();
 
     for(let element of this.langs) {
-      const languageKeyName = element+'.language';
+      const languageKeyName = element + '.language';
       this.languages.push({element, languageKeyName})
     }
   }
@@ -61,16 +65,6 @@ export class SettingsPage implements OnInit {
     // )
   }
 
-  enableNightMode() {
-    if (this.isNightModeEnabled) {
-      this.isNightModeEnabled = !this.isNightModeEnabled;
-      this.presentToast('Estas en modo normal');
-    } else {
-      this.isNightModeEnabled = !this.isNightModeEnabled;
-      this.presentToast('Estas en modo nocturno');
-    }
-  }
-
   async presentToast(message: string) {
     const toast = await this.toastController.create({
       message: message,
@@ -78,4 +72,28 @@ export class SettingsPage implements OnInit {
     });
     toast.present();
   }
+
+  enableNightMode() {
+    if (this.isNightModeEnabled) {
+      this.isNightModeEnabled = !this.isNightModeEnabled;
+      this.changeTheme('default');
+    } else {
+      this.isNightModeEnabled = !this.isNightModeEnabled;
+      this.changeTheme('#3858a1');
+    }
+  }
+
+  changeTheme(toColor: string) {
+    this.domCtrl.write(() => {
+      if(toColor === 'default') {
+        this.document.documentElement.setAttribute(
+          "style", "header-background:--header-background-default;"
+        );
+      } else {
+        this.document.documentElement.style.setProperty('--header-background-dark', toColor);
+        // this.document.documentElement.style.addClass('dark');
+      }
+    });
+  }  
+
 }

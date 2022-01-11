@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTravelPage implements OnInit {
 
+  public selectedOption: string;
+  public searchbar: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  savePlace() {
+    console.log(this.selectedOption);
+    console.log(this.searchbar);
   }
 
 }

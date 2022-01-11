@@ -10,6 +10,7 @@
 <ion-content>
   <ion-list>
     <ion-item>
+      <ion-icon name="language-sharp"></ion-icon>
       <ion-buttons>
         <ion-button expand="full" fill="clear" (click)="presentPopover()">
           <ion-label>{{ 'changeLanguages' | translate }}</ion-label>
@@ -18,10 +19,12 @@
     </ion-item>
 
     <ion-item button (click)="presentPopover()">
+      <ion-icon name="language-sharp"></ion-icon>
       <ion-label>{{ 'changeLanguages' | translate }}</ion-label>
     </ion-item>
   
     <ion-item>
+      <ion-icon name="moon"></ion-icon>
       <ion-buttons class="nightModeButtons">
         <ion-button expand="full" fill="clear" class="nightModeButton">
           <ion-label>
@@ -32,14 +35,16 @@
                 ('commons.disabled' | translate) }}
             </p>
           </ion-label>
-          <ion-toggle 
-            slot="end" 
-            (ionChange)="enableNightMode()"></ion-toggle>
         </ion-button>
+        <ion-toggle 
+            slot="end" 
+            (ionChange)="enableNightMode()"
+            disabled></ion-toggle>
       </ion-buttons>
     </ion-item>
 
     <ion-item>
+      <ion-icon name="moon"></ion-icon>
       <ion-label>
         {{ 'nightMode' | translate }}
         <p class="nightModeSubtitle">
