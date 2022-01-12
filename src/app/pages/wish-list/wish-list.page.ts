@@ -9,7 +9,7 @@ import { WishListService } from 'src/app/services/wishlist.service';
 })
 export class WishListPage implements OnInit {
 
-  public wishlistToShow: any[] = [];
+  public wishlistToShow: Set<any> = new Set();
   public defaultImg = DEFAULT_IMG;
   public modeListIsEnabled: boolean = true;
   public modeMapIsEnabled: boolean = false;
@@ -18,8 +18,9 @@ export class WishListPage implements OnInit {
   constructor(private wishlistService: WishListService) {}
 
   ngOnInit() {
+    this.wishlistService.initializeWishList();
     this.wishlistToShow = this.wishlistService.getWishListMock();
-    this.placeDetailsOpenedList = this.wishlistToShow.map(place => ({ title: place.title, show: false }));
+    this.placeDetailsOpenedList = Array.from(this.wishlistToShow).map(place => ({ title: place.title, show: false }));
   }
 
   changeViewMode() {

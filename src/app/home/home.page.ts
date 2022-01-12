@@ -14,7 +14,8 @@ export class HomePage implements OnInit {
 
   public swiper: Swiper;
   private url: string = '';
-  private randomImage = './assets/madrid.jpg';
+  //private randomImage = './assets/madrid.jpg';
+  private randomImages = [];
   private homeMessages: string[] = [
     'Has pensado en ir alguna vez a ',
     '¿Te llama la atención? Ven a ',
@@ -41,6 +42,10 @@ export class HomePage implements OnInit {
       this.location.back();
       // this.presentToast();
     });
+
+    for(const img of './assets') {
+      this.randomImages.push(img);
+    }
   }
 
   ngOnInit() {
@@ -48,7 +53,7 @@ export class HomePage implements OnInit {
 
     this.swiper = new Swiper('.swiper', {
       autoplay: {
-        delay: 5000,
+        delay: 4000,
       },
       loop: true
     });

@@ -14,13 +14,14 @@
     "en.language": "English",
     "es.language": "Spanish",
     "addTravel.whereTo": "Where to save?",
-    "continent.europe": "Europe",
-    "continent.northAmerica": "North America",
-    "continent.southAmerica": "South America",
-    "continent.africa": "Africa",
-    "continent.asia": "Asia",
-    "continent.oceania": "Oceania",
-    "continent.antarctica": "Antarctica",
+    "europe": "Europe",
+    "northAmerica": "North America",
+    "southAmerica": "South America",
+    "africa": "Africa",
+    "asia": "Asia",
+    "oceania": "Oceania",
+    "antarctica": "Antarctica",
     "wishlist.emptyList": "Empty list",
-    "wishlist.emptyListDescription": "Please add first place on the add page!"
+    "wishlist.emptyListDescription": "Please add first place on the add page!",
+    "commons.viewDetail": "View Detail"
 }

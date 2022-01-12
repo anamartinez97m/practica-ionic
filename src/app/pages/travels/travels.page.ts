@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DEFAULT_IMG } from 'src/app/global-constants';
+import { TravelsService } from 'src/app/services/travels.service';
 
 @Component({
   selector: 'app-travels',
@@ -8,31 +9,34 @@ import { DEFAULT_IMG } from 'src/app/global-constants';
 })
 export class TravelsPage implements OnInit {
 
-  public continents: any[] = [];
-  public defaultImg = DEFAULT_IMG;
+  public continents: string[] = [
+    'europe',
+    'northAmerica',
+    'southAmerica',
+    'africa',
+    'asia',
+    'oceania',
+    'antarctica'
+  ];
+  // TODO cambiar any por tipo Place
+  public continentsMap: Map<String, any> = new Map();
+  // public defaultImg = DEFAULT_IMG;
+  public places;
 
-  constructor() { }
+  constructor(private travelsService: TravelsService) { }
 
   ngOnInit() {
-    this.continents.push({
-      name: 'continent.europe', 
-      places: [{
-        country:'España', 
-        city:'Madrid', 
-        description:'Madrid es la capital de España.', 
-        image:'./assets/places/madrid.jpg'
-      }]
-    });
-    this.continents.push({name: 'continent.northAmerica', places: [{}]});
-    this.continents.push({name: 'continent.southAmerica', places: [{}]});
-    this.continents.push({name: 'continent.africa', places: [{}]});
-    this.continents.push({name: 'continent.asia', places: [{}]});
-    this.continents.push({name: 'continent.oceania', places: [{}]});
-    this.continents.push({name: 'continent.antarctica', places: [{}]});
-  }
+    this.places = this.travelsService.getTravelstMock();
 
-  show(place: any): boolean {
-    return Object.keys(place).length > 0;
+    for(const continent of this.continents) {
+      this.continentsMap.set(continent, []);
+    }
+
+    for(const place of this.places) {
+      let temp = [];
+      temp.push(place);
+      this.continentsMap.set(place.continent, temp);
+    }
   }
 
 }

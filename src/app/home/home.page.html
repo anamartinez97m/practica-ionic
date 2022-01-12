@@ -14,9 +14,7 @@
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide">{{ randomImage }}</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide" *ngFor="let img of randomImages">{{img}}</div>
         <!-- ... -->
       </div>
       <!-- If we need pagination -->

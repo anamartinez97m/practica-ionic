@@ -8,8 +8,7 @@ import { PopoverComponent } from "./popover.component";
 
 @NgModule({
   imports: [
-    // CommonModule,
-    BrowserModule,
+    CommonModule,
     FormsModule,
     IonicModule,
     TranslateModule
