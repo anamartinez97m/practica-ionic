@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { WISHLIST_MOCK } from "../wishListMock";
+import { TravelsService } from "./travels.service";
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { WISHLIST_MOCK } from "../wishListMock";
 export class WishListService {
     private wishlist: Set<any> = new Set();
 
-    constructor() {}
+    constructor(private travelsService: TravelsService) {}
 
     initializeWishList() {
         for(const place of WISHLIST_MOCK) {
@@ -27,10 +28,14 @@ export class WishListService {
 
     deletePlaceFromWishList(place: any) {
         console.log(this.wishlist);
-        console.log(place.title, "ha sido borrado");
+        console.log(place.city, "ha sido borrado");
         
         this.wishlist.delete(place);
 
         console.log(this.wishlist);
+    }
+
+    addPlaceToPlacesBeen(place: any) {
+        this.travelsService.addPlaceToTravels(place);
     }
 }

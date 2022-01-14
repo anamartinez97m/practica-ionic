@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, OnInit } from '@angular/core';
 import { DEFAULT_IMG } from 'src/app/global-constants';
 import { TravelsService } from 'src/app/services/travels.service';
 
@@ -7,7 +7,7 @@ import { TravelsService } from 'src/app/services/travels.service';
   templateUrl: './travels.page.html',
   styleUrls: ['./travels.page.scss'],
 })
-export class TravelsPage implements OnInit {
+export class TravelsPage implements OnInit, AfterContentInit {
 
   public continents: string[] = [
     'europe',
@@ -26,16 +26,30 @@ export class TravelsPage implements OnInit {
   constructor(private travelsService: TravelsService) { }
 
   ngOnInit() {
-    this.places = this.travelsService.getTravelstMock();
+    // this.places = this.travelsService.getTravelsFromMock();
+  }
+
+  ngAfterContentInit(): void {
+    this.places = this.travelsService.getTravels();
+    this.initializeContinentsContent();
+  }
+
+  initializeContinentsContent() {
+    const placesFromMock = this.travelsService.getTravelsFromMock();
+    const temp = [];
 
     for(const continent of this.continents) {
       this.continentsMap.set(continent, []);
     }
 
     for(const place of this.places) {
-      let temp = [];
-      temp.push(place);
-      this.continentsMap.set(place.continent, temp);
+      const continentPlacesList = this.continentsMap.get(place.continent);
+      this.continentsMap.set(place.continent, [...continentPlacesList, place]);
+    }
+
+    for(const p of placesFromMock) {
+      const continentPlacesList = this.continentsMap.get(p.continent);
+      this.continentsMap.set(p.continent, [...continentPlacesList, p]);
     }
   }
 

@@ -13,14 +13,14 @@ export class WishListPage implements OnInit {
   public defaultImg = DEFAULT_IMG;
   public modeListIsEnabled: boolean = true;
   public modeMapIsEnabled: boolean = false;
-  public placeDetailsOpenedList: { title: string; show: boolean }[] = []; 
+  public placeDetailsOpenedList: { city: string; show: boolean }[] = []; 
 
   constructor(private wishlistService: WishListService) {}
 
   ngOnInit() {
     this.wishlistService.initializeWishList();
     this.wishlistToShow = this.wishlistService.getWishListMock();
-    this.placeDetailsOpenedList = Array.from(this.wishlistToShow).map(place => ({ title: place.title, show: false }));
+    this.placeDetailsOpenedList = Array.from(this.wishlistToShow).map(place => ({ city: place.city, show: false }));
   }
 
   changeViewMode() {
@@ -34,14 +34,14 @@ export class WishListPage implements OnInit {
   }
 
   openOptions(place: any) {
-    const placeDetails = this.placeDetailsOpenedList.find(details => details.title === place.title); 
+    const placeDetails = this.placeDetailsOpenedList.find(details => details.city === place.city); 
     if(placeDetails) {
       placeDetails.show = true;
     }
   }
 
   closeOptions(place: any) {
-    const placeDetails = this.placeDetailsOpenedList.find(details => details.title === place.title);
+    const placeDetails = this.placeDetailsOpenedList.find(details => details.city === place.city);
     if(placeDetails) {
       placeDetails.show = false;
     }
@@ -52,7 +52,12 @@ export class WishListPage implements OnInit {
   }
 
   areOptionsShown(place: any) {
-    return this.placeDetailsOpenedList.find(details => details.title === place.title).show;
+    return this.placeDetailsOpenedList.find(details => details.city === place.city).show;
+  }
+
+  moveToPlacesBeen(place: any) {
+    this.wishlistService.addPlaceToPlacesBeen(place);
+    this.deletePlaceFromWishList(place);
   }
 
 }

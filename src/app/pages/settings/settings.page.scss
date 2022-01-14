@@ -19,6 +19,16 @@
     margin-top: auto;
 }
 
+.changeLanguageButtons {
+    width: 100%;
+    display: block;
+}
+
+.changeLanguageLabel {
+    text-align: left;
+    width: 100%;
+}
+
 .nightModeButtons {
     width: -webkit-fill-available;
 }
@@ -27,7 +37,20 @@
     width: -webkit-fill-available;
 }
 
+.nightModeLabel {
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nightModeLabelTitle {
+    margin-bottom: 0;
+    color: black;
+}
+
 .nightModeSubtitle {
     font-size: 10px;
     color: grey;
+    margin-bottom: 0;
 }

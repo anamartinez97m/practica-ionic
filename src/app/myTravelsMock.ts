@@ -8,8 +8,8 @@ export const PLACES_BEEN_MOCK = [
     },
     {
         continent: 'northAmerica',
-        country:'Unitated States', 
-        city:'San Francisco', 
+        country:'USA', 
+        city:'San Francisco, CA', 
         description:'San Francisco is the most expensive city of the country.', 
         image:'./assets/places/sanfrancisco.jpeg'
     }

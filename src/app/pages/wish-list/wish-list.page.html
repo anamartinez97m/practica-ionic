@@ -38,13 +38,13 @@
         <ion-item>
           <ion-card-content class="modeListIonCardContent">
             <ion-card-header class="modeListIonCardHeader" *ngIf="!areOptionsShown(place)">
-              {{ place.title }},  {{ place.country }}
+              {{ place.city }},  {{ place.country }}
               <ion-icon button name="caret-forward-outline" (click)="openOptions(place)"></ion-icon>
             </ion-card-header>
             <ion-card-header class="modeListIonCardHeader" *ngIf="areOptionsShown(place)">
               <ion-icon button name="caret-back-outline" (click)="closeOptions(place)"></ion-icon>
               <ion-icon name="trash-outline" size="large" (click)="deletePlaceFromWishList(place)"></ion-icon>
-              <ion-icon name="paper-plane-outline" size="large"></ion-icon>
+              <ion-icon name="paper-plane-outline" size="large" (click)="moveToPlacesBeen(place)"></ion-icon>
             </ion-card-header>
           </ion-card-content>
         </ion-item>

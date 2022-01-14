@@ -1,6 +1,12 @@
+.cardContainer {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
 .card {
     width: 50%;
-    height: 335px;
+    display: inline-block;
     margin-bottom: 5%;
 }
 
@@ -18,4 +24,11 @@
 
 .cardDescription {
     margin-left: 2.5%;
+}
+
+.cardDescriptionText {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
