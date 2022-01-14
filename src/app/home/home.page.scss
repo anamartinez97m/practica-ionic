@@ -1,6 +1,14 @@
 @import "~swiper/css";
 @import "~swiper/css/autoplay";
 
+.header {
+  --background: var(--header-background-dark);
+}
+
+.dark {
+  --background: var(--header-background-default);
+}
+
 .swiper {
   width: 100%;
   height: 100%;

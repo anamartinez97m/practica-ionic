@@ -1,3 +1,11 @@
+.header {
+    --background: var(--header-background-dark);
+}
+
+.dark {
+    --background: var(--header-background-default);
+}
+
 .modeWishListButtons {
     display: flex;
     flex-wrap: wrap;
