@@ -11,6 +11,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PopoverModule } from './components/popover/popover.module';
+import { File } from '@awesome-cordova-plugins/file/ngx';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,8 +33,10 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    PopoverModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+    PopoverModule,
+    IonicStorageModule.forRoot()
+  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, File],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

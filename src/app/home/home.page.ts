@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { App } from '@capacitor/app';
 import { Platform, ToastController } from '@ionic/angular';
 import Swiper, { Autoplay } from 'swiper';
+import { File } from '@awesome-cordova-plugins/file/ngx';
 
 @Component({
   selector: 'app-home',
@@ -14,19 +15,14 @@ export class HomePage implements OnInit {
 
   public swiper: Swiper;
   private url: string = '';
-  //private randomImage = './assets/madrid.jpg';
   private randomImages = [];
-  private homeMessages: string[] = [
-    'Has pensado en ir alguna vez a ',
-    '¿Te llama la atención? Ven a ',
-    'Celebra la vida en ',
-  ];
 
   constructor(
     private platform: Platform,
     private router: Router,
     private location: Location,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private file: File
   ) {
     this.url = this.router.url;
 
@@ -42,10 +38,6 @@ export class HomePage implements OnInit {
       this.location.back();
       // this.presentToast();
     });
-
-    for(const img of './assets') {
-      this.randomImages.push(img);
-    }
   }
 
   ngOnInit() {
@@ -57,14 +49,32 @@ export class HomePage implements OnInit {
       },
       loop: true
     });
+
+    try {
+      console.log(this.file);
+      this.file.listDir(this.file.dataDirectory, './assets/places')
+        .then(() => console.log('Directory exists'))
+        .catch(err =>
+          console.log(`Directory doesn't exist`)
+        );
+    } catch(err) {
+      console.log(err);
+    }
+
+    
+    
+
+    for(const img of './assets') {
+      this.randomImages.push(img);
+    }
   }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'This is the toast',
-      duration: 2000
-    });
-    toast.present();
-  }
+  // async presentToast() {
+  //   const toast = await this.toastController.create({
+  //     message: 'This is the toast',
+  //     duration: 2000
+  //   });
+  //   toast.present();
+  // }
 
 }

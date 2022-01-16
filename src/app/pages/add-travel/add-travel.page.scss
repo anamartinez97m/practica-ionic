@@ -15,13 +15,11 @@
     font-size: large;
     width: 100%;
     height: 60px;
-    // --background: #e7cfbc;
     --background: #9228a5;
-    // --background-focused: #dfbfa5;
     --background-focused: #491452;
-    // --background-hover: #dfbfa5;
     --background-hover: #491452;
     --border-color:#9228a5;
+    --background: var(--header-background-dark);
 }
 
 .addTravelSaveContainer {

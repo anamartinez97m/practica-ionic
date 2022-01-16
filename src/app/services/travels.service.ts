@@ -15,14 +15,12 @@ export class TravelsService {
     }
 
     getTravels() {
-        console.log(this.travels);
         return this.travels;
     }
 
     addPlaceToTravels(place: any) {
         // TODO: comprobar que no se repitan
         this.travels.push(place);
-        console.log(this.travels);
     }
 
     deletePlaceFromTravels(place: any) {        

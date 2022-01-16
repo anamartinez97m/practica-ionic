@@ -1,8 +1,9 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { DomController, PopoverController, ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
+import { StorageService } from 'src/app/services/storage.service';
 import { ThemeService } from 'src/app/theme.service';
 
 @Component({
@@ -21,16 +22,27 @@ export class SettingsPage implements OnInit {
     private translateService: TranslateService,
     private toastController: ToastController,
     private domCtrl: DomController,
+    private storageService: StorageService,
     @Inject(DOCUMENT) private document
   ) { } 
 
   ngOnInit() {
+    const toggle = this.document.getElementById('nightModeToggle');
+
     this.langs = this.translateService.getLangs();
 
     for(let element of this.langs) {
       const languageKeyName = element + '.language';
       this.languages.push({element, languageKeyName})
     }
+
+    this.storageService.get('nightMode')
+    .then(value => {
+      const checkedValue = value;
+      toggle.setAttribute("checked", checkedValue);
+      this.isNightModeEnabled = value;
+    });
+
   }
 
   async presentPopover(ev: any) {
@@ -73,14 +85,14 @@ export class SettingsPage implements OnInit {
     toast.present();
   }
 
-  enableNightMode() {
+  async enableNightMode() {
     if (this.isNightModeEnabled) {
-      this.isNightModeEnabled = !this.isNightModeEnabled;
       this.changeTheme('default');
     } else {
-      this.isNightModeEnabled = !this.isNightModeEnabled;
       this.changeTheme('#3858a1');
     }
+    this.isNightModeEnabled = !this.isNightModeEnabled;
+    await this.storageService.set('nightMode', this.isNightModeEnabled);
   }
 
   changeTheme(toColor: string) {
@@ -91,7 +103,6 @@ export class SettingsPage implements OnInit {
         );
       } else {
         this.document.documentElement.style.setProperty('--header-background-dark', toColor);
-        // this.document.documentElement.style.addClass('dark');
       }
     });
   }  

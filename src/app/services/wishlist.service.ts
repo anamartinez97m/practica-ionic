@@ -27,12 +27,8 @@ export class WishListService {
     }
 
     deletePlaceFromWishList(place: any) {
-        console.log(this.wishlist);
         console.log(place.city, "ha sido borrado");
-        
         this.wishlist.delete(place);
-
-        console.log(this.wishlist);
     }
 
     addPlaceToPlacesBeen(place: any) {

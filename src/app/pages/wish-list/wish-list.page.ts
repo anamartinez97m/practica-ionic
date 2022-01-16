@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DEFAULT_IMG } from 'src/app/global-constants';
 import { WishListService } from 'src/app/services/wishlist.service';
 
@@ -13,9 +14,15 @@ export class WishListPage implements OnInit {
   public defaultImg = DEFAULT_IMG;
   public modeListIsEnabled: boolean = true;
   public modeMapIsEnabled: boolean = false;
-  public placeDetailsOpenedList: { city: string; show: boolean }[] = []; 
+  public placeDetailsOpenedList: { city: string; show: boolean }[] = [];
+  private url: string = '';
 
-  constructor(private wishlistService: WishListService) {}
+  constructor(
+    private wishlistService: WishListService,
+    private router: Router
+  ) {
+    this.url = this.router.url;
+  }
 
   ngOnInit() {
     this.wishlistService.initializeWishList();
@@ -58,6 +65,10 @@ export class WishListPage implements OnInit {
   moveToPlacesBeen(place: any) {
     this.wishlistService.addPlaceToPlacesBeen(place);
     this.deletePlaceFromWishList(place);
+
+    if(this.url === '/wish-list') {
+      this.router.navigate(['/travels']);
+    }
   }
 
 }

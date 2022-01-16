@@ -17,11 +17,6 @@
         </ion-button>
       </ion-buttons>
     </ion-item>
-
-    <!-- <ion-item button (click)="presentPopover()">
-      <ion-icon name="language-sharp"></ion-icon>
-      <ion-label>{{ 'changeLanguages' | translate }}</ion-label>
-    </ion-item> -->
   
     <ion-item>
       <ion-icon name="moon"></ion-icon>
@@ -38,21 +33,9 @@
             </p>
           </ion-label>
         </ion-button>
-        <ion-toggle checked="isNightModeEnabled" (ionChange)="enableNightMode()"></ion-toggle>
+        <ion-toggle id="nightModeToggle" (ionChange)="enableNightMode()"></ion-toggle>
       </ion-buttons>
     </ion-item>
 
-    <!-- <ion-item>
-      <ion-icon name="moon"></ion-icon>
-      <ion-label>
-        {{ 'nightMode' | translate }}
-        <p class="nightModeSubtitle">
-          {{ isNightModeEnabled? 
-            ('commons.enabled' | translate) : 
-            ('commons.disabled' | translate) }}
-        </p>
-      </ion-label>
-      <ion-toggle (ionChange)="enableNightMode()"></ion-toggle>
-    </ion-item> -->
   </ion-list>
 </ion-content>
