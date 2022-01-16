@@ -13,7 +13,7 @@
     "commons.workInProgress": "¡Estamos trabajando en ello!",
     "en.language": "Inglés",
     "es.language": "Español",
-    "addTravel.whereTo": "¿Dónde quieres añadirlo?",
+    "addTravel.whereTo": "¿Dónde guardar?",
     "europe": "Europa",
     "northAmerica": "América del norte",
     "southAmerica": "América del sur",
@@ -23,5 +23,6 @@
     "antarctica": "Antártida",
     "wishlist.emptyList": "Lista vacia",
     "wishlist.emptyListDescription": "¡Por favor, añada el primer sitio desde la pestaña habilitada para ello!",
-    "commons.viewDetail": "Ver Detalle"
+    "commons.viewDetail": "Ver Detalle",
+    "commons.saveError": "Ha ocurrido un error. Vuelva a intentarlo"
 }

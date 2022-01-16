@@ -4,7 +4,7 @@ import { DomController, PopoverController, ToastController } from '@ionic/angula
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
 import { StorageService } from 'src/app/services/storage.service';
-import { ThemeService } from 'src/app/theme.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -67,22 +67,13 @@ export class SettingsPage implements OnInit {
 
   changeLanguage(selectedLanguage: string) {
     this.translateService.use(selectedLanguage);
-
+    this.storageService.set('lang', selectedLanguage);
     //translateService.use('en')
-
     // translateService.get('HELLO').subscribe(
     //   value => {
     //     let alertTitle = value;
     //   }
     // )
-  }
-
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 2000
-    });
-    toast.present();
   }
 
   async enableNightMode() {

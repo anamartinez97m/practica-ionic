@@ -8,13 +8,30 @@
     </ion-toolbar>
   </ion-header>
 
-  <div>
+  <div class="swiperContainer">
     <!-- Slider main container -->
     <div class="swiper">
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide" *ngFor="let img of randomImages">{{img}}</div>
+        <div class="swiper-slide">
+          <div class="displayContainer">
+            <ion-img src="assets/icon/wish-list.png" class="icons"></ion-img>
+            <p class="statTitle">Lista de deseos</p>
+            <p class="statInfo">Has guardado</p>
+            <p class="statNumber">{{ wishlistLength }}</p>
+            <p class="statInfo">sitios</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="displayContainer">
+            <ion-img src="assets/icon/earth.png" class="icons"></ion-img>
+            <p class="statTitle">Lista de sitios visitados</p>
+            <p class="statInfo">Has estado en</p>
+            <p class="statNumber">{{ myTravelsLength }}</p>
+            <p class="statInfo">sitios del planeta Tierra</p>
+          </div>
+        </div>
         <!-- ... -->
       </div>
       <!-- If we need pagination -->

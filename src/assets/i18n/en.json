@@ -23,5 +23,6 @@
     "antarctica": "Antarctica",
     "wishlist.emptyList": "Empty list",
     "wishlist.emptyListDescription": "Please add first place on the add page!",
-    "commons.viewDetail": "View Detail"
+    "commons.viewDetail": "View Detail",
+    "commons.saveError": "There was an error. Please try again"
 }

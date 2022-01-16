@@ -1,10 +1,11 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { App } from '@capacitor/app';
-import { Platform, ToastController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 import Swiper, { Autoplay } from 'swiper';
-import { File } from '@awesome-cordova-plugins/file/ngx';
+import { StorageService } from '../services/storage.service';
+
+// const APP_DIRECTORY = Directory.Documents;
 
 @Component({
   selector: 'app-home',
@@ -15,14 +16,15 @@ export class HomePage implements OnInit {
 
   public swiper: Swiper;
   private url: string = '';
-  private randomImages = [];
+  private wishlistLength: number = 0;
+  private myTravelsLength: number = 0;
 
   constructor(
     private platform: Platform,
     private router: Router,
     private location: Location,
-    private toastController: ToastController,
-    private file: File
+    private route: ActivatedRoute,
+    private storage: StorageService
   ) {
     this.url = this.router.url;
 
@@ -36,7 +38,6 @@ export class HomePage implements OnInit {
       //   this.platform.backButton.unsubscribe();
       // }
       this.location.back();
-      // this.presentToast();
     });
   }
 
@@ -50,31 +51,14 @@ export class HomePage implements OnInit {
       loop: true
     });
 
-    try {
-      console.log(this.file);
-      this.file.listDir(this.file.dataDirectory, './assets/places')
-        .then(() => console.log('Directory exists'))
-        .catch(err =>
-          console.log(`Directory doesn't exist`)
-        );
-    } catch(err) {
-      console.log(err);
-    }
-
-    
-    
-
-    for(const img of './assets') {
-      this.randomImages.push(img);
-    }
+    this.storage.get('wishlistLength')
+      .then((value) => {
+        this.wishlistLength = value;
+      });
+    this.storage.get('travelsLength')
+      .then((value) => {
+        this.myTravelsLength = value;
+      });
   }
-
-  // async presentToast() {
-  //   const toast = await this.toastController.create({
-  //     message: 'This is the toast',
-  //     duration: 2000
-  //   });
-  //   toast.present();
-  // }
 
 }

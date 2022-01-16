@@ -30,7 +30,24 @@
       [(ngModel)]="searchbar"
       animated 
       clearIcon="close-circle"
-      mode="ios"></ion-searchbar>
+      mode="ios"
+      placeholder="Try with Bangkok, Thailand..."
+      debounce="500"
+      (ionFocus)="searchbarHasFocus()"
+      (ionBlur)="searchbarHasFocus()"
+      (ionInput)="handleInput($event)"></ion-searchbar>
+
+    <div>
+      <ion-list>
+        <ion-item 
+          *ngFor="let place of arrayToSearch; let i = index"
+          id="{{ 'item-' + i }}" 
+          button 
+          (click)="selectPlace(place)">
+          {{ place.city }}, {{ place.country }}
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
 
   <div class="addTravelSaveContainer">

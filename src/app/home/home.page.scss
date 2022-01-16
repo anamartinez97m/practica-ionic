@@ -9,6 +9,10 @@
   --background: var(--header-background-default);
 }
 
+.swiperContainer {
+  height: 80%;
+}
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -41,3 +45,28 @@
   object-fit: cover;
 }
 
+.displayContainer {
+  height: 80%;
+  width: 90%;
+}
+
+.statTitle {
+  font-size: 7vw;
+}
+
+.statInfo {
+  font-size: 5vw;
+}
+
+.statNumber {
+  font-size: 20vw;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.icons {
+  width: 128px;
+  height: 128px;
+  display: block;
+  margin: auto;
+}

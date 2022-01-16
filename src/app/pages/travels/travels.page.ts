@@ -1,5 +1,6 @@
 import { AfterContentChecked, AfterContentInit, Component, OnInit } from '@angular/core';
 import { DEFAULT_IMG } from 'src/app/global-constants';
+import { StorageService } from 'src/app/services/storage.service';
 import { TravelsService } from 'src/app/services/travels.service';
 
 @Component({
@@ -20,13 +21,14 @@ export class TravelsPage implements OnInit, AfterContentInit {
   ];
   // TODO cambiar any por tipo Place
   public continentsMap: Map<String, any> = new Map();
-  // public defaultImg = DEFAULT_IMG;
   public places;
 
-  constructor(private travelsService: TravelsService) { }
+  constructor(
+    private travelsService: TravelsService,
+    private storage: StorageService
+  ) { }
 
   ngOnInit() {
-    // this.places = this.travelsService.getTravelsFromMock();
   }
 
   ngAfterContentInit(): void {
@@ -37,6 +39,7 @@ export class TravelsPage implements OnInit, AfterContentInit {
   initializeContinentsContent() {
     const placesFromMock = this.travelsService.getTravelsFromMock();
     const temp = [];
+    let count = 0;
 
     for(const continent of this.continents) {
       this.continentsMap.set(continent, []);
@@ -51,6 +54,10 @@ export class TravelsPage implements OnInit, AfterContentInit {
       const continentPlacesList = this.continentsMap.get(p.continent);
       this.continentsMap.set(p.continent, [...continentPlacesList, p]);
     }
+
+    count = this.places.length + placesFromMock.length;
+
+    this.storage.set('travelsLength', count);
   }
 
 }
