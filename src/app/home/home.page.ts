@@ -5,8 +5,6 @@ import { Platform } from '@ionic/angular';
 import Swiper, { Autoplay } from 'swiper';
 import { StorageService } from '../services/storage.service';
 
-// const APP_DIRECTORY = Directory.Documents;
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

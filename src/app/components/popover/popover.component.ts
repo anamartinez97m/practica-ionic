@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { ModalController, NavParams, PopoverController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { NavParams, PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-popover',

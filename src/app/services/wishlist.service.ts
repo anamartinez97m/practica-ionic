@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import { WISHLIST_MOCK } from "../wishListMock";
+import { Place } from "../interfaces/place";
+import { WISHLIST_MOCK } from "../mocks/wishListMock";
 import { StorageService } from "./storage.service";
 import { TravelsService } from "./travels.service";
 
@@ -8,7 +9,7 @@ import { TravelsService } from "./travels.service";
     providedIn: 'root'
 })
 export class WishListService {
-    private wishlist: Set<any> = new Set();
+    private wishlist: Set<Place> = new Set();
 
     constructor(
         private travelsService: TravelsService,
@@ -27,7 +28,7 @@ export class WishListService {
         return this.wishlist;
     }
 
-    addPlaceToWishList(place: any) {
+    addPlaceToWishList(place: Place) {
         this.wishlist.add(place);
         this.storage.get('wishlistLength')
             .then((value) => {
@@ -37,7 +38,7 @@ export class WishListService {
             });
     }
 
-    deletePlaceFromWishList(place: any) {
+    deletePlaceFromWishList(place: Place) {
         console.log(place.city, "ha sido borrado");
         this.wishlist.delete(place);
 
@@ -49,7 +50,7 @@ export class WishListService {
             });
     }
 
-    addPlaceToPlacesBeen(place: any) {
+    addPlaceToPlacesBeen(place: Place) {
         this.travelsService.addPlaceToTravels(place);
     }
 }

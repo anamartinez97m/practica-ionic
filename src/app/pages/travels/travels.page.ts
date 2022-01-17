@@ -1,5 +1,5 @@
-import { AfterContentChecked, AfterContentInit, Component, OnInit } from '@angular/core';
-import { DEFAULT_IMG } from 'src/app/global-constants';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
+import { Place } from 'src/app/interfaces/place';
 import { StorageService } from 'src/app/services/storage.service';
 import { TravelsService } from 'src/app/services/travels.service';
 
@@ -19,8 +19,7 @@ export class TravelsPage implements OnInit, AfterContentInit {
     'oceania',
     'antarctica'
   ];
-  // TODO cambiar any por tipo Place
-  public continentsMap: Map<String, any> = new Map();
+  public continentsMap: Map<String, Place[]> = new Map();
   public places;
 
   constructor(

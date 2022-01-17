@@ -1,10 +1,9 @@
 import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
-import { DomController, PopoverController, ToastController } from '@ionic/angular';
+import { Component, Inject, OnInit } from '@angular/core';
+import { DomController, PopoverController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
 import { StorageService } from 'src/app/services/storage.service';
-import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -13,14 +12,13 @@ import { ThemeService } from 'src/app/services/theme.service';
 })
 export class SettingsPage implements OnInit {
 
-  public langs: any;
-  public languages: any[] = [];
+  public langs: string[];
+  public languages: {element: string, languageKeyName: string}[] = [];
   public isNightModeEnabled: boolean = false;
 
   constructor(
     private popoverController: PopoverController,
     private translateService: TranslateService,
-    private toastController: ToastController,
     private domCtrl: DomController,
     private storageService: StorageService,
     @Inject(DOCUMENT) private document
@@ -45,11 +43,11 @@ export class SettingsPage implements OnInit {
 
   }
 
-  async presentPopover(ev: any) {
+  async presentPopover(event: any) {
     const popover = await this.popoverController.create({
       component: PopoverComponent,
       cssClass: 'my-custom-class',
-      event: ev,
+      event: event,
       translucent: true,
       componentProps: {
         data: this.languages

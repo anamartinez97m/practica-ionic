@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { PLACES_TO_SEARCH } from 'src/app/placesToSearch';
+import { Place } from 'src/app/interfaces/place';
+import { PLACES_TO_SEARCH } from 'src/app/mocks/placesToSearch';
 
 @Component({
   selector: 'app-add-travel',
@@ -31,7 +32,7 @@ export class AddTravelPage implements OnInit {
     this.searchbarIsFocused = !this.searchbarIsFocused;
   }
 
-  selectPlace(place: any) {
+  selectPlace(place: Place) {
     console.log(place);
   }
 
@@ -47,13 +48,8 @@ export class AddTravelPage implements OnInit {
 
       requestAnimationFrame(() => {
         items.forEach((item: any, index) => {
-          // const item = document.getElementById(`item-${index}`);
           const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
           item.style.display = shouldShow ? 'block' : 'none';
-
-          // if (item) {
-          //   item.style.display = shouldShow ? 'block' : 'none';
-          // }
         });
       });
     }

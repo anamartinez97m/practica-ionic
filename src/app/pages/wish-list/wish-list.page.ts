@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DEFAULT_IMG } from 'src/app/global-constants';
+import { Place } from 'src/app/interfaces/place';
 import { WishListService } from 'src/app/services/wishlist.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { WishListService } from 'src/app/services/wishlist.service';
 })
 export class WishListPage implements OnInit {
 
-  public wishlistToShow: Set<any> = new Set();
+  public wishlistToShow: Set<Place> = new Set();
   public defaultImg = DEFAULT_IMG;
   public modeListIsEnabled: boolean = true;
   public modeMapIsEnabled: boolean = false;
@@ -40,29 +41,29 @@ export class WishListPage implements OnInit {
     }
   }
 
-  openOptions(place: any) {
+  openOptions(place: Place) {
     const placeDetails = this.placeDetailsOpenedList.find(details => details.city === place.city); 
     if(placeDetails) {
       placeDetails.show = true;
     }
   }
 
-  closeOptions(place: any) {
+  closeOptions(place: Place) {
     const placeDetails = this.placeDetailsOpenedList.find(details => details.city === place.city);
     if(placeDetails) {
       placeDetails.show = false;
     }
   }
 
-  deletePlaceFromWishList(place: any) {
+  deletePlaceFromWishList(place: Place) {
     this.wishlistService.deletePlaceFromWishList(place);
   }
 
-  areOptionsShown(place: any) {
+  areOptionsShown(place: Place) {
     return this.placeDetailsOpenedList.find(details => details.city === place.city).show;
   }
 
-  moveToPlacesBeen(place: any) {
+  moveToPlacesBeen(place: Place) {
     this.wishlistService.addPlaceToPlacesBeen(place);
     this.deletePlaceFromWishList(place);
 

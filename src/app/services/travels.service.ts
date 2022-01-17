@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import { PLACES_BEEN_MOCK } from "../myTravelsMock";
+import { Place } from "../interfaces/place";
+import { PLACES_BEEN_MOCK } from "../mocks/myTravelsMock";
 import { StorageService } from "./storage.service";
 
 
@@ -7,7 +8,7 @@ import { StorageService } from "./storage.service";
     providedIn: 'root'
 })
 export class TravelsService {
-    private travels: any[] = [];
+    private travels: Place[] = [];
 
     constructor(private storage: StorageService) {}
 
@@ -19,7 +20,7 @@ export class TravelsService {
         return this.travels;
     }
 
-    addPlaceToTravels(place: any) {
+    addPlaceToTravels(place: Place) {
         // TODO: comprobar que no se repitan
         this.travels.push(place);
 
@@ -31,7 +32,7 @@ export class TravelsService {
             });
     }
 
-    deletePlaceFromTravels(place: any) {        
+    deletePlaceFromTravels(place: Place) {        
         console.log(place.city, "ha sido borrado");
 
         this.storage.get('travelsLength')
