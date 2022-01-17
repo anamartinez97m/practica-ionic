@@ -22,10 +22,23 @@ export class WishListService {
         }
 
         this.storage.set('wishlistLength', this.wishlist.size);
+        this.storage.set('wishlist', this.wishlist);
     }
 
-    getWishListMock() {
-        return this.wishlist;
+    async getWishList() {
+        await this.storage.get('wishlist')
+            .then((value) => {
+                Array.from(value)
+                .map((place: Place) => {
+                    const exists = Array.from(this.wishlist).find(item => item.id === place.id);
+                    if(!exists) {
+                        this.wishlist.add(place);
+                    }
+                });
+            });
+
+        console.log(this.wishlist);
+        return Promise.resolve(this.wishlist);
     }
 
     addPlaceToWishList(place: Place) {
@@ -35,11 +48,11 @@ export class WishListService {
                 let currentLength = value;
                 currentLength = currentLength + 1;
                 this.storage.set('wishlistLength', currentLength);
+                this.storage.set('wishlist', this.wishlist);
             });
     }
 
     deletePlaceFromWishList(place: Place) {
-        console.log(place.city, "ha sido borrado");
         this.wishlist.delete(place);
 
         this.storage.get('wishlistLength')
@@ -47,6 +60,7 @@ export class WishListService {
                 let currentLength = value;
                 currentLength = currentLength - 1;
                 this.storage.set('wishlistLength', currentLength);
+                this.storage.set('wishlist', this.wishlist);
             });
     }
 

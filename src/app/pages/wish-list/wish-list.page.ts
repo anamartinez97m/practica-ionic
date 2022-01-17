@@ -26,9 +26,10 @@ export class WishListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.wishlistService.initializeWishList();
-    this.wishlistToShow = this.wishlistService.getWishListMock();
-    this.placeDetailsOpenedList = Array.from(this.wishlistToShow).map(place => ({ city: place.city, show: false }));
+    this.wishlistService.getWishList().then(value => {
+      this.wishlistToShow = value;
+      this.placeDetailsOpenedList = Array.from(this.wishlistToShow).map(place => ({ city: place.city, show: false }));
+    });
   }
 
   changeViewMode() {

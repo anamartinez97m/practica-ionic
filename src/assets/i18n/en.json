@@ -4,16 +4,21 @@
     "title.addTravel": "Add travel",
     "title.mytravels": "My Travels",
     "title.settings": "Settings",
+
     "changeLanguages": "Change language",
     "nightMode": "Night Mode",
+
     "commons.enabled": "Enabled",
     "commons.disabled": "Not enabled",
     "commons.save": "Save",
     "commons.selectPlaceholder": "Select One",
     "commons.workInProgress": "We're working on it!",
+
     "en.language": "English",
     "es.language": "Spanish",
+
     "addTravel.whereTo": "Where to save?",
+
     "europe": "Europe",
     "northAmerica": "North America",
     "southAmerica": "South America",
@@ -21,8 +26,50 @@
     "asia": "Asia",
     "oceania": "Oceania",
     "antarctica": "Antarctica",
+
     "wishlist.emptyList": "Empty list",
     "wishlist.emptyListDescription": "Please add first place on the add page!",
+
     "commons.viewDetail": "View Detail",
-    "commons.saveError": "There was an error. Please try again"
+    "commons.saveError": "There was an error. Please try again",
+
+    "searchbar.placeholder": "Try with Bangkok or Thailand...",
+
+    "home.hasSaved": "You have saved",
+    "home.hasSavedPlaces": "places",
+    "home.placesBeen": "Places been list",
+    "home.hasBeen": "You have been in",
+    "home.hasBeenPlaces": "places of planet Earth",
+
+    "country.usa": "USA",
+    "country.sweden": "Sweden",
+    "country.netherlands": "Netherlands",
+    "country.spain": "Spain",
+    "country.france": "France",
+    "country.australia": "Australia",
+    "country.thailand": "Thailand",
+    "country.southAfrica": "South Africa",
+    "country.peru": "Peru",
+
+    "city.anchorage": "Anchorage, Alaska",
+    "city.stockholm": "Stockholm",
+    "city.amsterdam": "Amsterdam",
+    "city.madrid": "Madrid",
+    "city.sanFrancisco": "San Francisco, California",
+    "city.sydney": "Sydney",
+    "city.alsace": "Alsace",
+    "city.bangkok": "Bangkok",
+    "city.capeTown": "Cape Town",
+    "city.machuPicchu": "Macchu Picchu",
+
+    "description.anchorage": "Anchorage is Alaska's most populous city.",
+    "description.stockholm": "Stockholm is Sweden's capital.",
+    "description.amsterdam": "Amsterdam is the tulips city.",
+    "description.madrid": "Madrid is the capital of Spain.",
+    "description.sanFrancisco": "San Francisco is the most expensive city of the country.",
+    "description.sydney": "Sydney have been inhabited for over 30.000 years.",
+    "description.alsace": "Alsace means region or ILL River territory.",
+    "description.bangkok": "Bangkok is the capital of Thailand.",
+    "description.capeTown": "Cape Town is the legislative capital of South Africa.",
+    "description.machuPicchu": "Machu Picchu is one of the seven new wonders of the world."
 }

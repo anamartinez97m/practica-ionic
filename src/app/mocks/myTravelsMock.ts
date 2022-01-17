@@ -1,30 +1,34 @@
 export const PLACES_BEEN_MOCK = [
     {
+        id: 4,
         continent: 'europe',
-        country:'Spain', 
-        city:'Madrid', 
-        description:'Madrid is the capital of Spain.', 
-        image:'./assets/places/madrid.jpg'
+        country: 'country.spain', 
+        city: 'city.madrid', 
+        description: 'description.madrid', 
+        image: './assets/places/madrid.jpg'
     },
     {
+        id: 5,
         continent: 'northAmerica',
-        country:'USA', 
-        city:'San Francisco, CA', 
-        description:'San Francisco is the most expensive city of the country.', 
-        image:'./assets/places/sanfrancisco.jpeg'
+        country: 'country.usa', 
+        city: 'city.sanFrancisco', 
+        description: 'description.sanFrancisco', 
+        image: './assets/places/sanfrancisco.jpeg'
     },
     {
+        id: 6,
         continent: 'oceania',
-        country:'Australia', 
-        city:'Sydney', 
-        description:'Sydney have been inhabited for over 30.000 years.', 
-        image:'./assets/places/sydney.jpg'
+        country: 'country.australia', 
+        city: 'city.sydney', 
+        description: 'description.sydney', 
+        image: './assets/places/sydney.jpg'
     },
     {
+        id: 7,
         continent: 'europe',
-        country:'Francia', 
-        city:'Alsacia', 
-        description:'Alsace means region or ILL River territory.', 
-        image:'./assets/places/alsace.jpg'
+        country: 'country.france', 
+        city: 'city.alsace', 
+        description: 'description.alsace', 
+        image: './assets/places/alsace.jpg'
     }
 ];

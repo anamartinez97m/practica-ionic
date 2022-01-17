@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import Swiper, { Autoplay } from 'swiper';
 import { StorageService } from '../services/storage.service';
+import { TravelsService } from '../services/travels.service';
+import { WishListService } from '../services/wishlist.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +24,9 @@ export class HomePage implements OnInit {
     private router: Router,
     private location: Location,
     private route: ActivatedRoute,
-    private storage: StorageService
+    private storage: StorageService,
+    private wishlistService: WishListService,
+    private travelsService: TravelsService
   ) {
     this.url = this.router.url;
 
@@ -57,6 +61,9 @@ export class HomePage implements OnInit {
       .then((value) => {
         this.myTravelsLength = value;
       });
+
+    this.wishlistService.initializeWishList();
+    this.travelsService.initializeContinentsContent();
   }
 
 }

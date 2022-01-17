@@ -31,7 +31,7 @@
       animated 
       clearIcon="close-circle"
       mode="ios"
-      placeholder="Try with Bangkok, Thailand..."
+      placeholder="{{ 'searchbar.placeholder' | translate }}"
       debounce="500"
       (ionFocus)="searchbarHasFocus()"
       (ionBlur)="searchbarHasFocus()"
@@ -44,7 +44,7 @@
           id="{{ 'item-' + i }}" 
           button 
           (click)="selectPlace(place)">
-          {{ place.city }}, {{ place.country }}
+          {{ place.city | translate }}, {{ place.country | translate }}
         </ion-item>
       </ion-list>
     </div>

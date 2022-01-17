@@ -12,22 +12,22 @@
     <ion-list-header lines="inset" class="cardDisplayTitle">
       <ion-label class="continentLabel">{{ continent | translate }}</ion-label>
       <div class="cardContainer">
-        <ion-card *ngFor="let place of continentsMap.get(continent)" class="card">
+        <ion-card *ngFor="let place of getPlacesSetFromContinent(continent)" class="card">
           <ion-img [src]=place.image *ngIf="place.image"></ion-img>
           <ion-img [src]=defaultImg *ngIf="!place || !place.image"></ion-img>
           <ion-card-header>
             <ion-grid>
               <ion-row style="display: block;">
                 <ion-col size="10">
-                  <ion-card-title class="cardHeaderTitle">{{place.city}}</ion-card-title>
+                  <ion-card-title class="cardHeaderTitle">{{ place.city | translate }}</ion-card-title>
                   <ion-icon name="pin" slot="start"></ion-icon>
-                  <ion-label>{{place.country}}</ion-label>
+                  <ion-label>{{ place.country | translate }}</ion-label>
                 </ion-col>
               </ion-row>
             </ion-grid>
           </ion-card-header>
           <ion-card-content class="cardDescription" *ngIf="place.image">
-            <p class="cardDescriptionText">{{place.description}}</p>
+            <p class="cardDescriptionText">{{ place.description | translate }}</p>
             <ion-button expand="block" disabled>{{ 'commons.viewDetail' | translate }}</ion-button>
           </ion-card-content>
         </ion-card>

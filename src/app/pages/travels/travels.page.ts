@@ -10,53 +10,22 @@ import { TravelsService } from 'src/app/services/travels.service';
 })
 export class TravelsPage implements OnInit, AfterContentInit {
 
-  public continents: string[] = [
-    'europe',
-    'northAmerica',
-    'southAmerica',
-    'africa',
-    'asia',
-    'oceania',
-    'antarctica'
-  ];
-  public continentsMap: Map<String, Place[]> = new Map();
-  public places;
+  public continents: string[] = this.travelsService.getContinents();
+  public continentsMap: Map<string, Set<Place>>;
 
   constructor(
     private travelsService: TravelsService,
-    private storage: StorageService
   ) { }
 
   ngOnInit() {
   }
 
   ngAfterContentInit(): void {
-    this.places = this.travelsService.getTravels();
-    this.initializeContinentsContent();
+    this.travelsService.getTravels().then(value => this.continentsMap = value);
   }
 
-  initializeContinentsContent() {
-    const placesFromMock = this.travelsService.getTravelsFromMock();
-    const temp = [];
-    let count = 0;
-
-    for(const continent of this.continents) {
-      this.continentsMap.set(continent, []);
-    }
-
-    for(const place of this.places) {
-      const continentPlacesList = this.continentsMap.get(place.continent);
-      this.continentsMap.set(place.continent, [...continentPlacesList, place]);
-    }
-
-    for(const p of placesFromMock) {
-      const continentPlacesList = this.continentsMap.get(p.continent);
-      this.continentsMap.set(p.continent, [...continentPlacesList, p]);
-    }
-
-    count = this.places.length + placesFromMock.length;
-
-    this.storage.set('travelsLength', count);
+  getPlacesSetFromContinent(continent: string): Place[] {
+    return Array.from(this.continentsMap.get(continent));
   }
 
 }

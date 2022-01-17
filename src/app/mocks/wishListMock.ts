@@ -1,23 +1,26 @@
 export const WISHLIST_MOCK = [
     {
+        id: 1,
         continent: 'northAmerica',
-        country:'USA', 
-        city:'Anchorage, Alaska', 
-        description:'Anchorage es la capital de Alaska.', 
+        country: 'country.usa',
+        city: 'city.anchorage', 
+        description:'description.anchorage', 
         image:'./assets/places/anchorage.jpg'
     },
     {
+        id: 2,
         continent: 'europe',
-        country: 'Sweden',
-        city: 'Stockholm',
-        description: 'Stockholm es la capital de Suecia.',
+        country: 'country.sweden',
+        city: 'city.stockholm',
+        description: 'description.sweden',
         image: './assets/places/stockholm.jpg'
     },
     {
+        id: 3,
         continent: 'europe',
-        country: 'Netherlands',
-        city: 'Amsterdam',
-        description: 'Amsterdam es la ciudad de los tulipanes.',
+        country: 'country.netherlands',
+        city: 'city.amsterdam',
+        description: 'description.amsterdam',
         image: './assets/places/amsterdam.jpg'
     }
 ];

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from './services/storage.service';
+import { TravelsService } from './services/travels.service';
+import { WishListService } from './services/wishlist.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,7 @@ import { StorageService } from './services/storage.service';
 })
 export class AppComponent {
   constructor(
-    translate: TranslateService, 
+    private translate: TranslateService, 
     private storage: StorageService
   ) {
     translate.setDefaultLang('en');

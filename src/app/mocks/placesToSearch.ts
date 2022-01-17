@@ -1,23 +1,26 @@
 export const PLACES_TO_SEARCH = [
     {
+        id: 8,
         continent: 'asia',
-        country:'Thailand', 
-        city:'Bangkok', 
-        description:'Bangkok is the capital of Thailand.', 
-        image:'./assets/places/bangkok.jpg'
+        country: 'country.thailand', 
+        city: 'city.bangkok', 
+        description: 'description.bangkok', 
+        image: './assets/places/bangkok.jpg'
     }, //añadir 4 mas
     {
+        id: 9,
         continent: 'africa',
-        country:'South Africa', 
-        city:'Cape Town', 
-        description:'Cape Town.', 
-        image:'./assets/places/capetown.jpg'
+        country: 'country.southAfrica', 
+        city: 'city.capeTown', 
+        description: 'description.capeTown', 
+        image: './assets/places/capetown.jpg'
     }, // añadir 4 mas
     {
+        id: 10,
         continent: 'southAmerica',
-        country:'Peru', 
-        city:'Machu Picchu', 
-        description:'Machu Picchu is one of the seven new wonders of the world.', 
-        image:'./assets/places/machupicchu.jpeg'
+        country: 'country.peru',
+        city: 'city.machuPicchu', 
+        description: 'description.machuPicchu', 
+        image: './assets/places/machupicchu.jpeg'
     } // añadir 4 mas
 ];

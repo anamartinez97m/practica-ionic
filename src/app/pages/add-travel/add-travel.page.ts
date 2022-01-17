@@ -4,6 +4,8 @@ import { ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Place } from 'src/app/interfaces/place';
 import { PLACES_TO_SEARCH } from 'src/app/mocks/placesToSearch';
+import { TravelsService } from 'src/app/services/travels.service';
+import { WishListService } from 'src/app/services/wishlist.service';
 
 @Component({
   selector: 'app-add-travel',
@@ -17,11 +19,14 @@ export class AddTravelPage implements OnInit {
   public searchbarIsFocused: boolean = false;
   private url: string = '';
   private arrayToSearch = PLACES_TO_SEARCH;
+  private placeToSave: Place;
 
   constructor(
     private router: Router,
     private toastController: ToastController,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private wishlistService: WishListService,
+    private travelsService: TravelsService
   ) {
     this.url = this.router.url;
   }
@@ -33,7 +38,7 @@ export class AddTravelPage implements OnInit {
   }
 
   selectPlace(place: Place) {
-    console.log(place);
+    this.placeToSave = place;
   }
 
   isSearchbarValid() {
@@ -57,13 +62,15 @@ export class AddTravelPage implements OnInit {
   }
 
   savePlace() {
-    console.log(this.searchbar);
-
-    if(this.url === '/add-travel') {
+    if(this.placeToSave !== undefined && this.url === '/add-travel') {
       if(this.selectedOption === 'w') {
+        this.wishlistService.addPlaceToWishList(this.placeToSave);
         this.router.navigate(['/wish-list']);
+
       } else if(this.selectedOption === 't') {
+        this.travelsService.addPlaceToTravels(this.placeToSave);
         this.router.navigate(['/travels']);
+      
       } else {
         this.presentToast();
       }

@@ -38,7 +38,7 @@
         <ion-item>
           <ion-card-content class="modeListIonCardContent">
             <ion-card-header class="modeListIonCardHeader" *ngIf="!areOptionsShown(place)">
-              {{ place.city }},  {{ place.country }}
+              {{ place.city | translate }},  {{ place.country | translate }}
               <ion-icon button name="caret-forward-outline" (click)="openOptions(place)"></ion-icon>
             </ion-card-header>
             <ion-card-header class="modeListIonCardHeader" *ngIf="areOptionsShown(place)">

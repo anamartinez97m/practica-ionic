@@ -1,4 +1,5 @@
 export interface Place {
+    id: number;
     continent: string;
     country: string;
     city: string;
