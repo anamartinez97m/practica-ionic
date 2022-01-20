@@ -36,9 +36,9 @@ export class TravelsService {
                     const placesSet = this.continentsMap.get(continent[0]);
                     const placesFromContinent = continent[1];
 
-                    Array.from(placesSet)
+                    Array.from(placesFromContinent)
                     .map((place: Place) => {
-                        const exists = Array.from(placesFromContinent).find((item: Place) => item.id === place.id);
+                        const exists = Array.from(placesSet).find((item: Place) => item.id === place.id);
                         if(!exists) {
                             placesSet.add(place);
                         }
@@ -51,22 +51,13 @@ export class TravelsService {
 
     addPlaceToTravels(place: Place) {
         this.travels.add(place);
+        const continentPlacesList = this.continentsMap.get(place.continent);
+        this.continentsMap.set(place.continent, continentPlacesList.add(place));
 
         this.storage.get('travelsLength')
             .then((value) => {
                 let currentLength = value;
                 currentLength = currentLength + 1;
-                this.storage.set('travelsLength', currentLength);
-                this.storage.set('travels', this.continentsMap);
-            });
-    }
-
-    deletePlaceFromTravels(place: Place) {
-        this.travels.delete(place);
-        this.storage.get('travelsLength')
-            .then((value) => {
-                let currentLength = value;
-                currentLength = currentLength - 1;
                 this.storage.set('travelsLength', currentLength);
                 this.storage.set('travels', this.continentsMap);
             });
@@ -79,15 +70,8 @@ export class TravelsService {
           this.continentsMap.set(continent, new Set());
         }
     
-        // for(const place of this.travels) {
-        //   const continentPlacesList = this.continentsMap.get(place.continent);
-        //   // this.continentsMap.set(place.continent, [...continentPlacesList, place]);
-        //   this.continentsMap.set(place.continent, continentPlacesList.add(place));
-        // }
-    
         for(const p of placesFromMock) {
           const continentPlacesList = this.continentsMap.get(p.continent);
-          // this.continentsMap.set(p.continent, [...continentPlacesList, p]);
           this.continentsMap.set(p.continent, continentPlacesList.add(p));
         }
 
@@ -96,9 +80,13 @@ export class TravelsService {
                 this.travels.add(p);
             }
         }
-    
-        this.storage.set('travelsLength', this.travels.size);
-        this.storage.set('travels', this.continentsMap);
+
+        this.storage.get('travelsLength').then((len) => {
+            if(len <= this.travels.size) {
+                this.storage.set('travelsLength', this.travels.size);
+                this.storage.set('travels', this.continentsMap);
+            }
+        });
     }
 
     getPlacesFromContinent(continent: string): Place[] {
