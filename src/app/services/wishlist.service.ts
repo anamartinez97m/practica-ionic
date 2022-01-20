@@ -21,8 +21,12 @@ export class WishListService {
             this.wishlist.add(place);
         }
 
-        this.storage.set('wishlistLength', this.wishlist.size);
-        this.storage.set('wishlist', this.wishlist);
+        this.storage.get('wishlistLength').then((len) => {
+            if(len <= this.wishlist.size) {
+                this.storage.set('wishlistLength', this.wishlist.size);
+                this.storage.set('wishlist', this.wishlist);
+            }
+        });
     }
 
     async getWishList() {

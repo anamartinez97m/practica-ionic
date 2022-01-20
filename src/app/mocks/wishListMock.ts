@@ -13,7 +13,7 @@ export const WISHLIST_MOCK = [
         continent: 'europe',
         country: 'country.sweden',
         city: 'city.stockholm',
-        description: 'description.sweden',
+        description: 'description.stockholm',
         image: './assets/places/stockholm.jpg',
         showDetails: false
     },
