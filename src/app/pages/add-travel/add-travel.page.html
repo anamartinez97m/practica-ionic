@@ -35,7 +35,8 @@
       debounce="500"
       (ionFocus)="searchbarHasFocus()"
       (ionBlur)="searchbarHasFocus()"
-      (ionInput)="handleInput($event)"></ion-searchbar>
+      (ionInput)="handleInput($event)" 
+      class="ionSearchbar"></ion-searchbar>
 
     <div>
       <ion-list>
@@ -43,7 +44,7 @@
           *ngFor="let place of arrayToSearch; let i = index"
           id="{{ 'item-' + i }}" 
           button 
-          (click)="selectPlace(place)">
+          (click)="selectPlace(place, i)">
           {{ place.city | translate }}, {{ place.country | translate }}
         </ion-item>
       </ion-list>
@@ -53,11 +54,11 @@
   <div class="addTravelSaveContainer">
     <ion-buttons class="saveButtonContainer">
       <ion-button 
+        id="addTravelSaveButton"
         class="addTravelSaveButton"
         fill="outline"
         size="large"
         mode="ios"
-        type="submit"
         (click)="savePlace()">{{ 'commons.save' | translate }}</ion-button>
     </ion-buttons>
   </div>

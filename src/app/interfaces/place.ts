@@ -5,4 +5,5 @@ export interface Place {
     city: string;
     description: string;
     image: string;
+    showDetails: boolean;
 }

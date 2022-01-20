@@ -37,7 +37,6 @@ export class WishListService {
                 });
             });
 
-        console.log(this.wishlist);
         return Promise.resolve(this.wishlist);
     }
 

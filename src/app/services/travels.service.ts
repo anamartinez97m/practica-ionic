@@ -33,7 +33,7 @@ export class TravelsService {
                 const continentsMap = value;
 
                 for(const continent of continentsMap) {
-                    const placesSet = this.continentsMap.get(continent);
+                    const placesSet = this.continentsMap.get(continent[0]);
                     const placesFromContinent = continent[1];
 
                     Array.from(placesSet)
@@ -46,7 +46,6 @@ export class TravelsService {
                 }
             });
 
-        console.log(this.continentsMap);
         return Promise.resolve(this.continentsMap);
     }
 
@@ -100,5 +99,9 @@ export class TravelsService {
     
         this.storage.set('travelsLength', this.travels.size);
         this.storage.set('travels', this.continentsMap);
-      }
+    }
+
+    getPlacesFromContinent(continent: string): Place[] {
+        return Array.from(this.continentsMap.get(continent));
+    }
 }

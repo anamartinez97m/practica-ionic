@@ -6,6 +6,21 @@
     --background: var(--header-background-default);
 }
 
+.ionSearchbar {
+    text-align: -webkit-center;
+    // &.ion-icon: {
+    //     margin-left: calc(55% - 181.5px);
+    // }
+}
+
+.ionSearchbar input {
+    padding-left: calc(55% - 151.5px) !important;
+}
+
+.ionSearchbar ion-icon {
+    margin-left: calc(55% - 181.5px) !important;
+}
+
 .addTravelSelect {
     font-size: large;
 }

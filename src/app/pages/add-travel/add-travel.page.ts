@@ -1,6 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Place } from 'src/app/interfaces/place';
 import { PLACES_TO_SEARCH } from 'src/app/mocks/placesToSearch';
@@ -22,6 +23,8 @@ export class AddTravelPage implements OnInit {
   private placeToSave: Place;
 
   constructor(
+    private platform: Platform,
+    private location: Location,
     private router: Router,
     private toastController: ToastController,
     private translate: TranslateService,
@@ -29,6 +32,10 @@ export class AddTravelPage implements OnInit {
     private travelsService: TravelsService
   ) {
     this.url = this.router.url;
+
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.location.back();
+    });
   }
 
   ngOnInit() {}
@@ -37,8 +44,9 @@ export class AddTravelPage implements OnInit {
     this.searchbarIsFocused = !this.searchbarIsFocused;
   }
 
-  selectPlace(place: Place) {
+  selectPlace(place: Place, i) {
     this.placeToSave = place;
+    const item = document.getElementById(`item-${i}`);
   }
 
   isSearchbarValid() {
@@ -66,14 +74,12 @@ export class AddTravelPage implements OnInit {
       if(this.selectedOption === 'w') {
         this.wishlistService.addPlaceToWishList(this.placeToSave);
         this.router.navigate(['/wish-list']);
-
       } else if(this.selectedOption === 't') {
         this.travelsService.addPlaceToTravels(this.placeToSave);
         this.router.navigate(['/travels']);
-      
-      } else {
-        this.presentToast();
       }
+    } else {
+      this.presentToast();
     }
   }
 

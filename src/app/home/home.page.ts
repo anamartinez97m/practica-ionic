@@ -1,9 +1,11 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { App } from '@capacitor/app';
+import { IonRouterOutlet, Platform } from '@ionic/angular';
 import Swiper, { Autoplay } from 'swiper';
 import { StorageService } from '../services/storage.service';
+import { ThemeService } from '../services/theme.service';
 import { TravelsService } from '../services/travels.service';
 import { WishListService } from '../services/wishlist.service';
 
@@ -24,22 +26,16 @@ export class HomePage implements OnInit {
     private router: Router,
     private location: Location,
     private route: ActivatedRoute,
+    private routerOutlet: IonRouterOutlet,
     private storage: StorageService,
     private wishlistService: WishListService,
-    private travelsService: TravelsService
+    private travelsService: TravelsService,
+    private themeService: ThemeService
   ) {
     this.url = this.router.url;
 
     this.platform.backButton.subscribeWithPriority(10, () => {
-      // if(this.url === '/') {
-      //   App.exitApp();
-      // } else if(this.url === 'add-travel') {
-      //   this.location.back();
-      // } else {
-      //   this.router.navigate(['/']);
-      //   this.platform.backButton.unsubscribe();
-      // }
-      this.location.back();
+      App.exitApp();
     });
   }
 
@@ -64,6 +60,11 @@ export class HomePage implements OnInit {
 
     this.wishlistService.initializeWishList();
     this.travelsService.initializeContinentsContent();
+
+    this.storage.get('nightMode')
+    .then(value => {
+      this.themeService.enableNightModeFromStorage(value);
+    });
   }
 
 }

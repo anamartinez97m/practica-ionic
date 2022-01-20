@@ -5,7 +5,8 @@ export const PLACES_BEEN_MOCK = [
         country: 'country.spain', 
         city: 'city.madrid', 
         description: 'description.madrid', 
-        image: './assets/places/madrid.jpg'
+        image: './assets/places/madrid.jpg',
+        showDetails: false
     },
     {
         id: 5,
@@ -13,7 +14,8 @@ export const PLACES_BEEN_MOCK = [
         country: 'country.usa', 
         city: 'city.sanFrancisco', 
         description: 'description.sanFrancisco', 
-        image: './assets/places/sanfrancisco.jpeg'
+        image: './assets/places/sanfrancisco.jpeg',
+        showDetails: false
     },
     {
         id: 6,
@@ -21,7 +23,8 @@ export const PLACES_BEEN_MOCK = [
         country: 'country.australia', 
         city: 'city.sydney', 
         description: 'description.sydney', 
-        image: './assets/places/sydney.jpg'
+        image: './assets/places/sydney.jpg',
+        showDetails: false
     },
     {
         id: 7,
@@ -29,6 +32,7 @@ export const PLACES_BEEN_MOCK = [
         country: 'country.france', 
         city: 'city.alsace', 
         description: 'description.alsace', 
-        image: './assets/places/alsace.jpg'
+        image: './assets/places/alsace.jpg',
+        showDetails: false
     }
 ];

@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController, Platform } from '@ionic/angular';
 import { DEFAULT_IMG } from 'src/app/global-constants';
 import { Place } from 'src/app/interfaces/place';
 import { WishListService } from 'src/app/services/wishlist.service';
@@ -19,10 +21,17 @@ export class WishListPage implements OnInit {
   private url: string = '';
 
   constructor(
+    private platform: Platform,
+    private location: Location,
     private wishlistService: WishListService,
-    private router: Router
+    private router: Router,
+    private modalCtr: ModalController
   ) {
     this.url = this.router.url;
+
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.location.back();
+    });
   }
 
   ngOnInit() {

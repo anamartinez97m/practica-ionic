@@ -1,9 +1,12 @@
+import { Location } from '@angular/common';
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { DomController, PopoverController } from '@ionic/angular';
+import { App } from '@capacitor/app';
+import { DomController, Platform, PopoverController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
 import { StorageService } from 'src/app/services/storage.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -17,15 +20,20 @@ export class SettingsPage implements OnInit {
   public isNightModeEnabled: boolean = false;
 
   constructor(
+    private platform: Platform,
+    private location: Location,
     private popoverController: PopoverController,
     private translateService: TranslateService,
-    private domCtrl: DomController,
-    private storageService: StorageService,
-    @Inject(DOCUMENT) private document
-  ) { } 
+    private storage: StorageService,
+    private themeService: ThemeService
+  ) { 
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.location.back();
+    });
+  } 
 
   ngOnInit() {
-    const toggle = this.document.getElementById('nightModeToggle');
+    const toggle = document.getElementById('nightModeToggle');
 
     this.langs = this.translateService.getLangs();
 
@@ -34,7 +42,7 @@ export class SettingsPage implements OnInit {
       this.languages.push({element, languageKeyName})
     }
 
-    this.storageService.get('nightMode')
+    this.storage.get('nightMode')
     .then(value => {
       const checkedValue = value;
       toggle.setAttribute("checked", checkedValue);
@@ -65,7 +73,7 @@ export class SettingsPage implements OnInit {
 
   changeLanguage(selectedLanguage: string) {
     this.translateService.use(selectedLanguage);
-    this.storageService.set('lang', selectedLanguage);
+    this.storage.set('lang', selectedLanguage);
     //translateService.use('en')
     // translateService.get('HELLO').subscribe(
     //   value => {
@@ -75,25 +83,9 @@ export class SettingsPage implements OnInit {
   }
 
   async enableNightMode() {
-    if (this.isNightModeEnabled) {
-      this.changeTheme('default');
-    } else {
-      this.changeTheme('#3858a1');
-    }
-    this.isNightModeEnabled = !this.isNightModeEnabled;
-    await this.storageService.set('nightMode', this.isNightModeEnabled);
-  }
-
-  changeTheme(toColor: string) {
-    this.domCtrl.write(() => {
-      if(toColor === 'default') {
-        this.document.documentElement.setAttribute(
-          "style", "header-background:--header-background-default;"
-        );
-      } else {
-        this.document.documentElement.style.setProperty('--header-background-dark', toColor);
-      }
+    this.themeService.enableNightMode(this.isNightModeEnabled).then((value) => {
+      this.isNightModeEnabled = value;
     });
-  }  
+  }
 
 }
